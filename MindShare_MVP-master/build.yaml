@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      mindshare|model_object:
+        generate_for:
+          - lib/models/*.dart
+
+builders:
+  model_object:
+    import: "package:mindshare/util/code_gen/builder.dart"
+    builder_factories: ["modelObjectBuilder"]
+    build_extensions: {".dart":[".g.dart"]}
+    auto_apply: dependents
+    build_to: source
